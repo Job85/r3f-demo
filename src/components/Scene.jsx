@@ -2,15 +2,38 @@ import styles from '../styles/Home.module.css';
 import { Canvas } from '@react-three/fiber';
 import Controls from './OrbitControls';
 import Sphere from './Sphere';
+import SphereDisplay from './SphereDisplay';
+import FallingStars from './MultiSphere';
+import TextRing from './TextRing';
+import TextSphere from './TextSphere';
 
 export default function Scene() {
 
     return (
         <div className={styles.scene}>
-            <Canvas className={styles.canvas}>
+            <Canvas className={styles.canvas}
+                camera={{ position: [0, 0, 150], fov: 40 }}
+            >
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} />
-                <Sphere />
+                {/* <SphereDisplay /> */}
+                <Sphere
+                    args={[3, 64, 32]}
+                    stops={[0.2, 0.5, 1.0]}
+                    colors={['orange', 'orange', 'orange']}
+                    position={[-5, 5, 5]}
+                />
+                {/* <Sphere
+                    args={[3, 64, 32]}
+                    stops={[0.0, 0.5, 0.8]}
+                    colors={['yellow', 'orange', 'green']}
+                    position={[5, 5, 5]}
+                >
+                    Text Goes Here
+                </Sphere> */}
+                {/* <TextSphere> */}
+                {/* JavaScript */}
+                {/* </TextSphere> */}
                 <Controls />
             </Canvas>
         </div>
