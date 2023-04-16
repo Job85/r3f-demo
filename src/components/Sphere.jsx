@@ -1,9 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import { GradientTexture } from "@react-three/drei";
+import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 function Sphere({ args, colors, stops, ...props }) {
 
+    const colorMap = useLoader(TextureLoader, '../Terrain/Terrain001_4K_Color.jpg')
     // This reference will give us direct access to the mesh
     const mesh = useRef()
     // Set up state for the hovered and active state
@@ -16,13 +18,14 @@ function Sphere({ args, colors, stops, ...props }) {
         <mesh
             {...props}
             ref={mesh}
-            scale={active ? 2.5 : 1}
-            onClick={(event) => setActive(!active)}
-            onPointerOver={(event) => setHover(true)}
-            onPointerOut={(event) => setHover(false)}
+        // scale={active ? 2.5 : 1}
+        // onClick={(event) => setActive(!active)}
+        // onPointerOver={(event) => setHover(true)}
+        // onPointerOut={(event) => setHover(false)}
         >
+            <ambientLight color={'white'} intensity={0.9} />
             <sphereGeometry args={args} />
-            <meshBasicMaterial>
+            <meshBasicMaterial map={colorMap}>
                 <GradientTexture
                     stops={stops}
                     colors={colors}
