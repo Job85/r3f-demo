@@ -17,13 +17,13 @@ export default function Scene() {
                 {/* <ambientLight intensity={0.5} /> */}
                 {/* <pointLight position={[10, 10, 10]} /> */}
                 {/* <SphereDisplay /> */}
-                <Sphere
+                {/* <Sphere
                     args={[3, 64, 32]}
                     stops={[0.2, 0.5, 1.0]}
-                    colors={['orange', 'orange', 'orange']}
+                    colors={['orange', 'red', 'orange']}
                     position={[-5, 5, 5]}
-                />
-                <Model />
+                /> */}
+                {/* <Model /> */}
                 {/* <Sphere
                     args={[3, 64, 32]}
                     stops={[0.0, 0.5, 0.8]}
